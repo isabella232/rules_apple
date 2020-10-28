@@ -83,7 +83,10 @@ def _tvos_application_impl(ctx):
         "resources",
     ]
 
-    link_result = linking_support.register_linking_action(ctx)
+    link_result = linking_support.register_linking_action(
+        ctx,
+        stamp = ctx.attr.stamp,
+    )
     binary_artifact = link_result.binary_provider.binary
     debug_outputs_provider = link_result.debug_outputs_provider
 
@@ -281,7 +284,10 @@ def _tvos_application_impl(ctx):
 
 def _tvos_framework_impl(ctx):
     """Experimental implementation of tvos_framework."""
-    link_result = linking_support.register_linking_action(ctx)
+    link_result = linking_support.register_linking_action(
+        ctx,
+        stamp = ctx.attr.stamp,
+    )
     binary_artifact = link_result.binary_provider.binary
     debug_outputs_provider = link_result.debug_outputs_provider
 
@@ -449,7 +455,10 @@ def _tvos_extension_impl(ctx):
         "resources",
     ]
 
-    link_result = linking_support.register_linking_action(ctx)
+    link_result = linking_support.register_linking_action(
+        ctx,
+        stamp = ctx.attr.stamp,
+    )
     binary_artifact = link_result.binary_provider.binary
     debug_outputs_provider = link_result.debug_outputs_provider
 

@@ -102,6 +102,7 @@ def _ios_application_impl(ctx):
     link_result = linking_support.register_linking_action(
         ctx,
         extra_linkopts = extra_linkopts,
+        stamp = ctx.attr.stamp,
     )
     binary_artifact = link_result.binary_provider.binary
     debug_outputs_provider = link_result.debug_outputs_provider
@@ -339,7 +340,10 @@ def _ios_app_clip_impl(ctx):
         "resources",
     ]
 
-    link_result = linking_support.register_linking_action(ctx)
+    link_result = linking_support.register_linking_action(
+        ctx,
+        stamp = ctx.attr.stamp,
+    )
     binary_artifact = link_result.binary_provider.binary
     debug_outputs_provider = link_result.debug_outputs_provider
 
@@ -552,6 +556,7 @@ def _ios_framework_impl(ctx):
     link_result = linking_support.register_linking_action(
         ctx,
         extra_linkopts = extra_linkopts,
+        stamp = ctx.attr.stamp,
     )
     binary_artifact = link_result.binary_provider.binary
     debug_outputs_provider = link_result.debug_outputs_provider
@@ -733,6 +738,7 @@ def _ios_extension_impl(ctx):
     link_result = linking_support.register_linking_action(
         ctx,
         extra_linkopts = extra_linkopts,
+        stamp = ctx.attr.stamp,
     )
     binary_artifact = link_result.binary_provider.binary
     debug_outputs_provider = link_result.debug_outputs_provider
@@ -1139,7 +1145,10 @@ def _ios_imessage_extension_impl(ctx):
         "resources",
     ]
 
-    link_result = linking_support.register_linking_action(ctx)
+    link_result = linking_support.register_linking_action(
+        ctx,
+        stamp = ctx.attr.stamp,
+    )
     binary_artifact = link_result.binary_provider.binary
     debug_outputs_provider = link_result.debug_outputs_provider
 
